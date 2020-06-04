@@ -1,0 +1,7 @@
+D:\ProvisGames\Study\Personal\알고리즘 문제해결 전략\M 이동평균\M 이동평균\bin\Debug\M 이동평균.exe.config
+D:\ProvisGames\Study\Personal\알고리즘 문제해결 전략\M 이동평균\M 이동평균\bin\Debug\M 이동평균.exe
+D:\ProvisGames\Study\Personal\알고리즘 문제해결 전략\M 이동평균\M 이동평균\bin\Debug\M 이동평균.pdb
+D:\ProvisGames\Study\Personal\알고리즘 문제해결 전략\M 이동평균\M 이동평균\obj\Debug\M 이동평균.csprojAssemblyReference.cache
+D:\ProvisGames\Study\Personal\알고리즘 문제해결 전략\M 이동평균\M 이동평균\obj\Debug\M 이동평균.csproj.CoreCompileInputs.cache
+D:\ProvisGames\Study\Personal\알고리즘 문제해결 전략\M 이동평균\M 이동평균\obj\Debug\M 이동평균.exe
+D:\ProvisGames\Study\Personal\알고리즘 문제해결 전략\M 이동평균\M 이동평균\obj\Debug\M 이동평균.pdb
