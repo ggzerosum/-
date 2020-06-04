@@ -1,0 +1,10 @@
+D:\Personal\Programming\알고리즘 문제해결 전략\무식하게 풀기\게임판 덮기\게임판 덮기\게임판 덮기\bin\Debug\게임판 덮기.exe.config
+D:\Personal\Programming\알고리즘 문제해결 전략\무식하게 풀기\게임판 덮기\게임판 덮기\게임판 덮기\bin\Debug\게임판 덮기.exe
+D:\Personal\Programming\알고리즘 문제해결 전략\무식하게 풀기\게임판 덮기\게임판 덮기\게임판 덮기\bin\Debug\게임판 덮기.pdb
+D:\Personal\Programming\알고리즘 문제해결 전략\무식하게 풀기\게임판 덮기\게임판 덮기\게임판 덮기\obj\Debug\게임판 덮기.csprojAssemblyReference.cache
+D:\Personal\Programming\알고리즘 문제해결 전략\무식하게 풀기\게임판 덮기\게임판 덮기\게임판 덮기\obj\Debug\게임판 덮기.csproj.CoreCompileInputs.cache
+D:\Personal\Programming\알고리즘 문제해결 전략\무식하게 풀기\게임판 덮기\게임판 덮기\게임판 덮기\obj\Debug\게임판 덮기.exe
+D:\Personal\Programming\알고리즘 문제해결 전략\무식하게 풀기\게임판 덮기\게임판 덮기\게임판 덮기\obj\Debug\게임판 덮기.pdb
+D:\Personal\Programming\알고리즘 문제해결 전략\무식하게 풀기\게임판 덮기\게임판 덮기\게임판 덮기\obj\Debug\게임판_덮기.Properties.Resources.resources
+D:\Personal\Programming\알고리즘 문제해결 전략\무식하게 풀기\게임판 덮기\게임판 덮기\게임판 덮기\obj\Debug\게임판 덮기.csproj.GenerateResource.cache
+D:\Personal\Programming\알고리즘 문제해결 전략\무식하게 풀기\게임판 덮기\게임판 덮기\게임판 덮기\obj\Debug\게임판 덮기.g.resources
