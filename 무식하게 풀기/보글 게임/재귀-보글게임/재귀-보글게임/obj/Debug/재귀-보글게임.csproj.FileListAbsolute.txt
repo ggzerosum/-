@@ -1,0 +1,7 @@
+D:\Personal\Programming\알고리즘 문제해결 전략\보글 게임\재귀-보글게임\재귀-보글게임\bin\Debug\재귀-보글게임.exe.config
+D:\Personal\Programming\알고리즘 문제해결 전략\보글 게임\재귀-보글게임\재귀-보글게임\bin\Debug\재귀-보글게임.exe
+D:\Personal\Programming\알고리즘 문제해결 전략\보글 게임\재귀-보글게임\재귀-보글게임\bin\Debug\재귀-보글게임.pdb
+D:\Personal\Programming\알고리즘 문제해결 전략\보글 게임\재귀-보글게임\재귀-보글게임\obj\Debug\재귀-보글게임.csprojAssemblyReference.cache
+D:\Personal\Programming\알고리즘 문제해결 전략\보글 게임\재귀-보글게임\재귀-보글게임\obj\Debug\재귀-보글게임.csproj.CoreCompileInputs.cache
+D:\Personal\Programming\알고리즘 문제해결 전략\보글 게임\재귀-보글게임\재귀-보글게임\obj\Debug\재귀-보글게임.exe
+D:\Personal\Programming\알고리즘 문제해결 전략\보글 게임\재귀-보글게임\재귀-보글게임\obj\Debug\재귀-보글게임.pdb
