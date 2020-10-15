@@ -1,0 +1,7 @@
+D:\Personal\Programming\알고리즘 문제해결 전략\백준 알고리즘 문제\4196번 도미노\4196번 도미노\bin\Debug\4196번 도미노.exe.config
+D:\Personal\Programming\알고리즘 문제해결 전략\백준 알고리즘 문제\4196번 도미노\4196번 도미노\bin\Debug\4196번 도미노.exe
+D:\Personal\Programming\알고리즘 문제해결 전략\백준 알고리즘 문제\4196번 도미노\4196번 도미노\bin\Debug\4196번 도미노.pdb
+D:\Personal\Programming\알고리즘 문제해결 전략\백준 알고리즘 문제\4196번 도미노\4196번 도미노\obj\Debug\4196번 도미노.csprojAssemblyReference.cache
+D:\Personal\Programming\알고리즘 문제해결 전략\백준 알고리즘 문제\4196번 도미노\4196번 도미노\obj\Debug\4196번 도미노.csproj.CoreCompileInputs.cache
+D:\Personal\Programming\알고리즘 문제해결 전략\백준 알고리즘 문제\4196번 도미노\4196번 도미노\obj\Debug\4196번 도미노.exe
+D:\Personal\Programming\알고리즘 문제해결 전략\백준 알고리즘 문제\4196번 도미노\4196번 도미노\obj\Debug\4196번 도미노.pdb
