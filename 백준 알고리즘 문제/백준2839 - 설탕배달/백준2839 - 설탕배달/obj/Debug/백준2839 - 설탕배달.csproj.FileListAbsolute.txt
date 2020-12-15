@@ -1,0 +1,7 @@
+D:\Personal\Programming\알고리즘 문제해결 전략\백준 알고리즘 문제\백준2839 - 설탕배달\백준2839 - 설탕배달\bin\Debug\백준2839 - 설탕배달.exe.config
+D:\Personal\Programming\알고리즘 문제해결 전략\백준 알고리즘 문제\백준2839 - 설탕배달\백준2839 - 설탕배달\bin\Debug\백준2839 - 설탕배달.exe
+D:\Personal\Programming\알고리즘 문제해결 전략\백준 알고리즘 문제\백준2839 - 설탕배달\백준2839 - 설탕배달\bin\Debug\백준2839 - 설탕배달.pdb
+D:\Personal\Programming\알고리즘 문제해결 전략\백준 알고리즘 문제\백준2839 - 설탕배달\백준2839 - 설탕배달\obj\Debug\백준2839 - 설탕배달.csprojAssemblyReference.cache
+D:\Personal\Programming\알고리즘 문제해결 전략\백준 알고리즘 문제\백준2839 - 설탕배달\백준2839 - 설탕배달\obj\Debug\백준2839 - 설탕배달.csproj.CoreCompileInputs.cache
+D:\Personal\Programming\알고리즘 문제해결 전략\백준 알고리즘 문제\백준2839 - 설탕배달\백준2839 - 설탕배달\obj\Debug\백준2839 - 설탕배달.exe
+D:\Personal\Programming\알고리즘 문제해결 전략\백준 알고리즘 문제\백준2839 - 설탕배달\백준2839 - 설탕배달\obj\Debug\백준2839 - 설탕배달.pdb
