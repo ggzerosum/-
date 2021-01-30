@@ -42,6 +42,25 @@ namespace ClippingAlgorithm
                 new LineSegment(new Vector2(0, 10), new Vector2(10, 0)));
             Console.WriteLine($"<시작점이 안쪽에 있는 경우> State:{segmentIntersection2.State} Clip:{segmentIntersection2.Clip}");
             Console.WriteLine($"===========================================");
+
+            Console.WriteLine($"========== 사각형의 넓이 구하기 ===========");
+            double boxArea = Geometry2D.Area(new[]
+            {
+                new Vector2(0,0),
+                new Vector2(10,0),
+                new Vector2(10,10),
+                new Vector2(0,10)
+            });
+            Console.WriteLine($"사각형의 넓이(가로:{10},세로:{10}) , {boxArea}");
+
+            double triArea = Geometry2D.Area(new[]
+            {
+                new Vector2(0,0),
+                new Vector2(10,0),
+                new Vector2(5,10)
+            });
+            Console.WriteLine($"삼각형의 넓이(가로:{10},세로:{10}) , {triArea}");
+            Console.WriteLine($"===========================================");
         }
     }
 
@@ -250,6 +269,21 @@ namespace ClippingAlgorithm
                 // 선분의 시작점이 안쪽에 있다는 말이므로, 끝점을 교차점으로 옮겨야한다.
                 return new SegmentIntersection(SegmentIntersection.BooleanState.Both, new LineSegment(segment.Start, intersection));
             }
+        }
+
+
+        public static double Area(Vector2[] polygon)
+        {
+            double area = 0d;
+            for (int i = 0; i < polygon.Length; i++)
+            {
+                int j = (i + 1) % polygon.Length;
+                // 2차원 평면상에서 사선공식 = 외적이고, 외적을 살펴보면
+                // 폴리곤 내 모든 선분의 시작점과 끝점의 외적을 더한 값과 같다.
+                area += (polygon[i].X * polygon[j].Y) - (polygon[j].X * polygon[i].Y);
+            }
+
+            return Math.Abs(area * 0.5d);
         }
     }
 
