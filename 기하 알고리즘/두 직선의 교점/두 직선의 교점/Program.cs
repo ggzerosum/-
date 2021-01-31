@@ -61,6 +61,36 @@ namespace ClippingAlgorithm
             });
             Console.WriteLine($"삼각형의 넓이(가로:{10},세로:{10}) , {triArea}");
             Console.WriteLine($"===========================================");
+
+
+            Clipper2D clipper2d = new Clipper2D();
+            List<Vector2> clipWindow = new List<Vector2>()
+            {
+                new Vector2(0, 0),
+                new Vector2(10, 0),
+                new Vector2(10, 10),
+                new Vector2(0, 10)
+            };
+            List<Vector2> subjectPolygon = new List<Vector2>()
+            {
+                //new Vector2(5, 5),
+                //new Vector2(20, 20),
+                //new Vector2(5, 20)
+
+                new Vector2(5, 5),
+                new Vector2(20, 5),
+                new Vector2(20, 20),
+                new Vector2(5, 20)
+            };
+            List<Vector2> clipResult = new List<Vector2>(100);
+            clipper2d.GetInersection(clipWindow, subjectPolygon, clipResult);
+
+            int i = 0;
+            foreach (Vector2 vector2 in clipResult)
+            {
+                Console.WriteLine($"{i}: {vector2}");
+                i++;
+            }
         }
     }
 
@@ -121,6 +151,15 @@ namespace ClippingAlgorithm
         public static Vector2 operator /(Vector2 lhs, double rhs)
         {
             return new Vector2(lhs.X / rhs, lhs.Y / rhs);
+        }
+
+        public static bool operator ==(Vector2 lhs, Vector2 rhs)
+        {
+            return lhs.X.Equals(rhs.X) && lhs.Y.Equals(rhs.Y);
+        }
+        public static bool operator !=(Vector2 lhs, Vector2 rhs)
+        {
+            return !lhs.X.Equals(rhs.X) || !lhs.Y.Equals(rhs.Y);
         }
 
         public static Vector2 Normalize(Vector2 a)
@@ -223,20 +262,29 @@ namespace ClippingAlgorithm
 
         public struct SegmentIntersection
         {
+            [Flags]
             public enum BooleanState
             {
-                Inside = 0,
-                Outside = 1,
-                Both = 2
+                BothOutside = 0b0000,
+                StartInside = 0b0001,
+                EndInside = 0b0010,
+                BothInside = 0b0011
             }
 
             public BooleanState State;
             public LineSegment Clip;
+            public Vector2 Intersection;
 
-            public SegmentIntersection(BooleanState state, LineSegment clip)
+            public SegmentIntersection(BooleanState state, LineSegment clip, Vector2 intersection)
             {
                 State = state;
                 Clip = clip;
+                Intersection = intersection;
+            }
+
+            public bool CheckState(BooleanState state)
+            {
+                return (State & state) == state;
             }
         }
         public static SegmentIntersection ClippingLineSegmentToEdge(LineSegment edge, LineSegment segment)
@@ -249,9 +297,9 @@ namespace ClippingAlgorithm
             double dot2 = Vector2.Dot(segment.End - s, edge.Normal);
 
             if (dot1 < 0 && dot2 < 0) // 두 벡터 모두 내적이 음수 = 모든 점이 밑쪽에 있다 = 점들이 바깥에 있다.
-                return new SegmentIntersection(SegmentIntersection.BooleanState.Outside, segment);
+                return new SegmentIntersection(SegmentIntersection.BooleanState.BothOutside, segment, Vector2.Zero);
             if (dot1 >= 0 && dot2 >= 0) // 두 벡터 모두 내적이 양수 = 모든 점이 위쪽에 있다 = 점들이 안쪽에 있다.
-                return new SegmentIntersection(SegmentIntersection.BooleanState.Inside, segment);
+                return new SegmentIntersection(SegmentIntersection.BooleanState.BothInside, segment, Vector2.Zero);
 
             // 선분의 시작,끝점이 모두 안쪽에 있거나 모두 바깥에 있는 경우를 위에서 처리했으므로
             // 여기서부터는 두 점이 서로 다른 HalfSpace에 위치해있는 경우를 처리해야한다. (하나가 안쪽에 있으면 하나가 바깥쪽에 있다.)
@@ -262,12 +310,12 @@ namespace ClippingAlgorithm
             if (dot1 < 0) // 선분의 시작점이 바깥에 있을 경우
             {
                 // 선분의 끝점이 안쪽에 있다는 말이므로, 시작점을 교차점으로 옮겨야한다.
-                return new SegmentIntersection(SegmentIntersection.BooleanState.Both, new LineSegment(intersection, segment.End));
+                return new SegmentIntersection(SegmentIntersection.BooleanState.EndInside, new LineSegment(intersection, segment.End), intersection);
             }
             else
             {
                 // 선분의 시작점이 안쪽에 있다는 말이므로, 끝점을 교차점으로 옮겨야한다.
-                return new SegmentIntersection(SegmentIntersection.BooleanState.Both, new LineSegment(segment.Start, intersection));
+                return new SegmentIntersection(SegmentIntersection.BooleanState.StartInside, new LineSegment(segment.Start, intersection), intersection);
             }
         }
 
