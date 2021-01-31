@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProvisGames.PolygonClipper;
 
-namespace ClippingAlgorithm
+namespace Provisgames_PolygonClipper
 {
     public class Clipper2D
     {
-        List<Vector2> _input = new List<Vector2>(100);
-        List<Vector2> _output = new List<Vector2>(100);
+        List<Vector2> _input = new List<Vector2>(10);
+        List<Vector2> _output = new List<Vector2>(10);
 
         /// <summary>
         /// 시계방향으로 순회하며 다각형을 clipPolygon에 맞춰서 잘라냅니다.

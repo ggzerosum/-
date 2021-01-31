@@ -43,7 +43,7 @@ namespace ClippingAlgorithm
             Console.WriteLine($"<시작점이 안쪽에 있는 경우> State:{segmentIntersection2.State} Clip:{segmentIntersection2.Clip}");
             Console.WriteLine($"===========================================");
 
-            Console.WriteLine($"========== 사각형의 넓이 구하기 ===========");
+            Console.WriteLine($"========== 도형의 넓이 구하기 ===========");
             double boxArea = Geometry2D.Area(new[]
             {
                 new Vector2(0,0),
@@ -83,7 +83,7 @@ namespace ClippingAlgorithm
                 new Vector2(5, 20)
             };
             List<Vector2> clipResult = new List<Vector2>(100);
-            clipper2d.GetInersection(clipWindow, subjectPolygon, clipResult);
+            clipper2d.Clip(clipWindow, subjectPolygon, clipResult);
 
             int i = 0;
             foreach (Vector2 vector2 in clipResult)
@@ -263,7 +263,7 @@ namespace ClippingAlgorithm
         public struct SegmentIntersection
         {
             [Flags]
-            public enum BooleanState
+            public enum ClipState
             {
                 BothOutside = 0b0000,
                 StartInside = 0b0001,
@@ -271,18 +271,18 @@ namespace ClippingAlgorithm
                 BothInside = 0b0011
             }
 
-            public BooleanState State;
+            public ClipState State;
             public LineSegment Clip;
             public Vector2 Intersection;
 
-            public SegmentIntersection(BooleanState state, LineSegment clip, Vector2 intersection)
+            public SegmentIntersection(ClipState state, LineSegment clip, Vector2 intersection)
             {
                 State = state;
                 Clip = clip;
                 Intersection = intersection;
             }
 
-            public bool CheckState(BooleanState state)
+            public bool CheckState(ClipState state)
             {
                 return (State & state) == state;
             }
@@ -297,9 +297,9 @@ namespace ClippingAlgorithm
             double dot2 = Vector2.Dot(segment.End - s, edge.Normal);
 
             if (dot1 < 0 && dot2 < 0) // 두 벡터 모두 내적이 음수 = 모든 점이 밑쪽에 있다 = 점들이 바깥에 있다.
-                return new SegmentIntersection(SegmentIntersection.BooleanState.BothOutside, segment, Vector2.Zero);
+                return new SegmentIntersection(SegmentIntersection.ClipState.BothOutside, segment, Vector2.Zero);
             if (dot1 >= 0 && dot2 >= 0) // 두 벡터 모두 내적이 양수 = 모든 점이 위쪽에 있다 = 점들이 안쪽에 있다.
-                return new SegmentIntersection(SegmentIntersection.BooleanState.BothInside, segment, Vector2.Zero);
+                return new SegmentIntersection(SegmentIntersection.ClipState.BothInside, segment, Vector2.Zero);
 
             // 선분의 시작,끝점이 모두 안쪽에 있거나 모두 바깥에 있는 경우를 위에서 처리했으므로
             // 여기서부터는 두 점이 서로 다른 HalfSpace에 위치해있는 경우를 처리해야한다. (하나가 안쪽에 있으면 하나가 바깥쪽에 있다.)
@@ -310,12 +310,12 @@ namespace ClippingAlgorithm
             if (dot1 < 0) // 선분의 시작점이 바깥에 있을 경우
             {
                 // 선분의 끝점이 안쪽에 있다는 말이므로, 시작점을 교차점으로 옮겨야한다.
-                return new SegmentIntersection(SegmentIntersection.BooleanState.EndInside, new LineSegment(intersection, segment.End), intersection);
+                return new SegmentIntersection(SegmentIntersection.ClipState.EndInside, new LineSegment(intersection, segment.End), intersection);
             }
             else
             {
                 // 선분의 시작점이 안쪽에 있다는 말이므로, 끝점을 교차점으로 옮겨야한다.
-                return new SegmentIntersection(SegmentIntersection.BooleanState.StartInside, new LineSegment(segment.Start, intersection), intersection);
+                return new SegmentIntersection(SegmentIntersection.ClipState.StartInside, new LineSegment(segment.Start, intersection), intersection);
             }
         }
 
