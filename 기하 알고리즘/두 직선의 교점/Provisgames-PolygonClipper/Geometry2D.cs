@@ -99,7 +99,19 @@ namespace ProvisGames.PolygonClipper
             }
         }
 
+        public static double Area(IList<Vector2> polygon)
+        {
+            double area = 0d;
+            for (int i = 0; i < polygon.Count; i++)
+            {
+                int j = (i + 1) % polygon.Count;
+                // 2차원 평면상에서 사선공식 = 외적이고, 외적을 살펴보면
+                // 폴리곤 내 모든 선분의 시작점과 끝점의 외적을 더한 값과 같다.
+                area += (polygon[i].X * polygon[j].Y) - (polygon[j].X * polygon[i].Y);
+            }
 
+            return Math.Abs(area * 0.5d);
+        }
         public static double Area(Vector2[] polygon)
         {
             double area = 0d;

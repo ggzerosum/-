@@ -13,6 +13,15 @@ namespace Provisgames_PolygonClipper
         List<Vector2> _output = new List<Vector2>(10);
 
         /// <summary>
+        /// 닫혀있는 다각형의 너비를 구합니다.
+        /// </summary>
+        /// <param name="polygon">시계방향 혹은 반시계방향으로 입력된 폴리곤의 버텍스들</param>
+        public static double Area(IList<Vector2> polygon)
+        {
+            return Geometry2D.Area(polygon);
+        }
+
+        /// <summary>
         /// 시계방향으로 순회하며 다각형을 clipPolygon에 맞춰서 잘라냅니다.
         /// </summary>
         public void Clip(List<Vector2> clipPolygon, List<Vector2> subjectPolygon, in List<Vector2> clipResult)
